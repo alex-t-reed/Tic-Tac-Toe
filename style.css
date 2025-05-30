@@ -1,0 +1,100 @@
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen;
+  background: #ffffff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.container {
+  text-align: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+  margin: 20px auto;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+.cell.x::before {
+  content: "X";
+  color: red;
+  animation: fire 0.6s ease-out;
+}
+
+.cell.o::before {
+  content: "O";
+  color: blue;
+  animation: fire 0.6s ease-out;
+}
+
+@keyframes fire {
+  0% { transform: scale(0.5); opacity: 0.2; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.status {
+  margin: 15px 0;
+  font-size: 1.2rem;
+}
+
+.spacer {
+  height: 20px;
+}
+
+footer {
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+footer a {
+  color: #007aff;
+  text-decoration: none;
+}
+
+.cell.fire {
+  background-image: radial-gradient(circle at center, #ff4d4d 0%, #ff0000 40%, transparent 70%);
+  animation: fireGlow 0.8s infinite alternate;
+}
+
+@keyframes fireGlow {
+  0% { box-shadow: 0 0 10px 5px rgba(255, 69, 0, 0.5); }
+  100% { box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.7); }
+}
